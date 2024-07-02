@@ -7,7 +7,7 @@ export default function TrekCard() {
     <Card className=" shadow-xl border-none ">
       <CardHeader className="bg-[#c9f299] rounded-t-lg p-4">
         <CardTitle className="flex items-center justify-between">
-          <Status className="bg-[#e0eec6]" />
+          <Status className="bg-[#e2fcef]" />
           <Packed />
         </CardTitle>
       </CardHeader>
