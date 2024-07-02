@@ -1,12 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Status from "./base/Status";
+import Packed from "./base/Packed";
 
 export default function TrekCard() {
   return (
     <Card className=" shadow-xl border-none ">
       <CardHeader className="bg-[#c9f299] rounded-t-lg p-4">
-        <CardTitle>
+        <CardTitle className="flex items-center justify-between">
           <Status className="bg-[#e0eec6]" />
+          <Packed />
         </CardTitle>
       </CardHeader>
       <CardContent>
