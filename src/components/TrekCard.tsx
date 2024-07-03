@@ -14,7 +14,7 @@ export default function TrekCard() {
           <Packed />
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-[#eef4ed] rounded-b-lg flex">
+      <CardContent className="bg-[#eef4ed] rounded-b-lg flex p-0">
         <DataTable columns={columns} data={tableSources} />
       </CardContent>
     </Card>
