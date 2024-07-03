@@ -1,6 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Status from "./base/Status";
 import Packed from "./base/Packed";
+import DataTable from "./Table";
+import { columns } from "@/lib/columns";
+import { tableSources } from "@/lib/data";
 
 export default function TrekCard() {
   return (
@@ -11,8 +14,8 @@ export default function TrekCard() {
           <Packed />
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
+      <CardContent className="bg-[#eef4ed] rounded-b-lg flex">
+        <DataTable columns={columns} data={tableSources} />
       </CardContent>
     </Card>
   );
