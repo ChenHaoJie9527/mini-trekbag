@@ -15,8 +15,22 @@ export default function TrekCard() {
   const [currentItem, setCurrentItem] = useState(0);
   const firstItem = head(list);
   const targetList = useMemo(() => {
-    return list.filter(item => item.id !== '0')
+    return list.filter((item) => item.id !== "0");
   }, [list]);
+
+  const onCheckedChange = (id: string | number, checked: boolean) => {
+    const filterTargetList = list.map((item) => {
+      if (item.id === id) {
+        item.checked = !checked;
+      }
+      return item;
+    });
+    const currentItem = filterTargetList.filter(
+      (item) => item.checked === true
+    );
+    setCurrentItem(currentItem.length);
+    setList(filterTargetList);
+  };
   return (
     <Card className=" shadow-xl border-none min-w-[740px] relative -top-12">
       <CardHeader className="bg-[#c9f299] rounded-t-lg p-4">
@@ -33,6 +47,10 @@ export default function TrekCard() {
               options={targetList}
               className="w-[95%]"
               defaultName={firstItem?.content}
+              callback={(val) => {
+                const res = list.filter((item) => item.content === val);
+                setList(res);
+              }}
             />
           </div>
           <div className="w-full">
@@ -41,6 +59,7 @@ export default function TrekCard() {
               callback={(currentItem) => {
                 setCurrentItem(currentItem);
               }}
+              onCheckedChange={onCheckedChange}
             />
           </div>
         </div>

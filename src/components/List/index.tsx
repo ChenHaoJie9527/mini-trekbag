@@ -6,32 +6,21 @@ import { useState } from "react";
 interface Props {
   list: ListType[];
   callback?: (currentItem: number) => void;
+  onCheckedChange?: (id: number | string, checked: boolean) => void;
 }
-export default function List({ list, callback }: Props) {
+export default function List({ list, callback, onCheckedChange }: Props) {
   const [targetList, setTargetList] = useState(list);
-  const onCheckedChange = (id: string | number, checked: boolean) => {
-    const filterTargetList = targetList.map((item) => {
-      if (item.id === id) {
-        item.checked = !checked;
-      }
-      return item;
-    });
-    const currentItem = filterTargetList.filter(
-      (item) => item.checked === true
-    );
-    callback?.(currentItem.length);
-    setTargetList(filterTargetList);
-  };
+
 
   const removeChange = (id: number | string) => {
-    const filterTargetList = targetList.filter((item) => item.id!== id);
+    const filterTargetList = targetList.filter((item) => item.id !== id);
     setTargetList(filterTargetList);
   };
 
   return (
     <ul className="w-full flex flex-col list-none">
-      {Boolean(targetList.length) &&
-        targetList.map((item) => {
+      {Boolean(list.length) &&
+        list.map((item) => {
           return (
             <li
               className={`flex items-center w-full min-h-12 px-6 border-b justify-between hover:bg-[#d3f7d1] 
@@ -44,7 +33,7 @@ export default function List({ list, callback }: Props) {
                   className="group size-5 rounded-[2px] bg-white/10 border p-1 ring-1 ring-white/15 ring-inset data-[checked]:bg-white"
                   checked={item.checked}
                   onChange={() => {
-                    onCheckedChange(item.id, item.checked);
+                    onCheckedChange?.(item.id, item.checked);
                   }}
                 >
                   {item.checked && (

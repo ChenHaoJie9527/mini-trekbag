@@ -12,15 +12,19 @@ interface Props {
   options: ListType[];
   defaultName?: string;
   className?: string;
+  callback?: (val: string) => void;
 }
-export default function Select({ options, className, defaultName }: Props) {
+export default function Select({ options, className, defaultName, callback }: Props) {
   const [value, setValue] = useState(defaultName);
   return (
     <Listbox
       value={value}
       as="div"
       className={`relative max-w-[500px] ${className}`}
-      onChange={setValue}
+      onChange={(val) => {
+        setValue(val)
+        callback?.(val)
+      }}
     >
       <ListboxButton className="border p-1 rounded w-full flex items-center justify-between">
         {value}
