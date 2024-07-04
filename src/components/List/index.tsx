@@ -5,32 +5,32 @@ import { useState } from "react";
 
 interface Props {
   list: ListType[];
+  callback?: (currentItem: number) => void;
 }
-export default function List({ list }: Props) {
-  //   const targetList = list.map((item) => {
-  //     return item;
-  //   });
+export default function List({ list, callback }: Props) {
   const [targetList, setTargetList] = useState(list);
   const onCheckedChange = (id: string | number, checked: boolean) => {
-    console.log(id);
     const filterTargetList = targetList.map((item) => {
       if (item.id === id) {
         item.checked = !checked;
-      } 
+      }
       return item;
     });
-    console.log("filterTargetList =>", filterTargetList);
+    const currentItem = filterTargetList.filter(
+      (item) => item.checked === true
+    );
+    callback?.(currentItem.length);
     setTargetList(filterTargetList);
   };
+
   return (
     <ul className="w-full flex flex-col list-none">
       {Boolean(targetList.length) &&
         targetList.map((item) => {
           return (
             <li
-              className={`flex items-center w-full min-h-12 px-6 border-b justify-between hover:bg-[#ddfae7] ${
-                item.checked && "bg-[#ddfae7]"
-              }`}
+              className={`flex items-center w-full min-h-12 px-6 border-b justify-between hover:bg-[#ddfae7] 
+                ${item.checked && "bg-[#ddfae7]"}`}
               key={item.id}
             >
               <div className="flex items-center space-x-2">

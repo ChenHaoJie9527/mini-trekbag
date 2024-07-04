@@ -4,6 +4,7 @@ import Packed from "./base/Packed";
 import Select from "./base/Select";
 import List from "./List";
 import { listSources } from "@/lib/list";
+import { useState } from "react";
 // import DataTable from "./Table";
 // import { columns } from "@/lib/columns";
 // import { tableSources } from "@/lib/data";
@@ -19,12 +20,13 @@ const options = [
   },
 ];
 export default function TrekCard() {
+  const [currentItem, setCurrentItem] = useState(0);
   return (
     <Card className=" shadow-xl border-none min-w-[740px] relative -top-12">
       <CardHeader className="bg-[#c9f299] rounded-t-lg p-4">
         <CardTitle className="flex items-center justify-between">
           <Status className="bg-[#e2fcef]" />
-          <Packed />
+          <Packed total={listSources.length} current={currentItem} />
         </CardTitle>
       </CardHeader>
       <CardContent className="bg-[#f7f7f2] rounded-b-lg flex p-0 min-h-[400px] ">
@@ -38,7 +40,12 @@ export default function TrekCard() {
             />
           </div>
           <div className="w-full">
-            <List list={listSources} />
+            <List
+              list={listSources}
+              callback={(currentItem) => {
+                setCurrentItem(currentItem);
+              }}
+            />
           </div>
         </div>
         <div className="flex-[25%]">add an item</div>
