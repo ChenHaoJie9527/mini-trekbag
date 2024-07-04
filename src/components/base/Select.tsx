@@ -41,7 +41,7 @@ export default function Select({ options, defaultName, className }: Props) {
             value={option.value}
             className={({ focus, selected }) =>
               `cursor-pointer select-none relative  p-2 ${
-                focus ? "bg-blue-100" : ""
+                focus ? "bg-[#d3f7d1]" : ""
               } ${selected ? "font-bold" : ""}`
             }
           >
