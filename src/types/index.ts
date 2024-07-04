@@ -4,3 +4,10 @@ export type PaymentType = {
     status: string;
     email: string;
 };
+
+export type ListType = {
+    id: string | number;
+    content: string;
+    checked: boolean;
+    status: boolean;
+}

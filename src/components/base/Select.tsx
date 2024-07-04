@@ -23,7 +23,7 @@ export default function Select({ options, defaultName, className }: Props) {
     <Listbox
       value={value}
       as="div"
-      className={`relative max-w-[450px] ${className}`}
+      className={`relative max-w-[500px] ${className}`}
       onChange={setValue}
     >
       <ListboxButton className="border p-1 rounded w-full flex items-center justify-between">
