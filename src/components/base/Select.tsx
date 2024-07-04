@@ -13,7 +13,7 @@ interface Props {
   defaultName?: string;
   className?: string;
 }
-export default function Select({ options, defaultName, className }: Props) {
+export default function Select({ options, className, defaultName }: Props) {
   const [value, setValue] = useState(defaultName);
   return (
     <Listbox

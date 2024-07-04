@@ -2,6 +2,12 @@ import { ListType } from "@/types";
 
 export const listSources: ListType[] = [
     {
+        id: "0",
+        content: "All",
+        status: false,
+        checked: false,
+    },
+    {
         id: "1",
         content: "Mount Everest",
         status: false,
