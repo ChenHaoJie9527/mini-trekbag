@@ -34,8 +34,8 @@ export default function List({ list, callback }: Props) {
         targetList.map((item) => {
           return (
             <li
-              className={`flex items-center w-full min-h-12 px-6 border-b justify-between hover:bg-[#ddfae7] 
-                ${item.checked && "bg-[#ddfae7]"}`}
+              className={`flex items-center w-full min-h-12 px-6 border-b justify-between hover:bg-[#d3f7d1] 
+                ${item.checked && "bg-[#d3f7d1]"}`}
               key={item.id}
             >
               <div className="flex items-center space-x-2">

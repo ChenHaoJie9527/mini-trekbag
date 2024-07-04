@@ -9,16 +9,7 @@ import { useState } from "react";
 // import { columns } from "@/lib/columns";
 // import { tableSources } from "@/lib/data";
 
-const options = [
-  {
-    id: "1",
-    value: "Active",
-  },
-  {
-    id: "2",
-    value: "Paused",
-  },
-];
+
 export default function TrekCard() {
   const [currentItem, setCurrentItem] = useState(0);
   return (
@@ -34,7 +25,7 @@ export default function TrekCard() {
         <div className="w-full flex items-center  flex-[70%] border-r flex-col">
           <div className="w-full p-2 flex items-center justify-center border-b">
             <Select
-              options={options}
+              options={listSources}
               className="w-[95%]"
               defaultName="Active"
             />

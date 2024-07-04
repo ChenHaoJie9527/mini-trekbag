@@ -1,3 +1,4 @@
+import { ListType } from "@/types";
 import {
   Listbox,
   ListboxButton,
@@ -7,13 +8,8 @@ import {
 import { ChevronDownIcon } from "lucide-react";
 import { useState } from "react";
 
-type Options = {
-  id: string;
-  value: string;
-};
-
 interface Props {
-  options: Options[];
+  options: ListType[];
   defaultName?: string;
   className?: string;
 }
@@ -33,12 +29,12 @@ export default function Select({ options, defaultName, className }: Props) {
       <ListboxOptions
         transition
         anchor="bottom start"
-        className="min-w-[450px] lg:[--anchor-gap:4px] bg-white border rounded shadow-lg max-h-60 overflow-auto origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
+        className="min-w-[495px] lg:[--anchor-gap:4px] bg-white border rounded shadow-lg max-h-60 overflow-auto origin-top transition duration-200 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
       >
         {options.map((option) => (
           <ListboxOption
             key={option.id}
-            value={option.value}
+            value={option.content}
             className={({ focus, selected }) =>
               `cursor-pointer select-none relative  p-2 ${
                 focus ? "bg-[#d3f7d1]" : ""
@@ -47,7 +43,7 @@ export default function Select({ options, defaultName, className }: Props) {
           >
             {({ selected }) => (
               <span className={`block truncate ${selected ? "font-bold" : ""}`}>
-                {option.value}
+                {option.content}
               </span>
             )}
           </ListboxOption>
