@@ -23,6 +23,11 @@ export default function List({ list, callback }: Props) {
     setTargetList(filterTargetList);
   };
 
+  const removeChange = (id: number | string) => {
+    const filterTargetList = targetList.filter((item) => item.id!== id);
+    setTargetList(filterTargetList);
+  };
+
   return (
     <ul className="w-full flex flex-col list-none">
       {Boolean(targetList.length) &&
@@ -60,7 +65,15 @@ export default function List({ list, callback }: Props) {
                 </Checkbox>
                 <span>{item.content}</span>
               </div>
-              <X size={16} color="#e70808" strokeWidth={3} />
+              <X
+                size={16}
+                color="#e70808"
+                strokeWidth={3}
+                onClick={() => {
+                  removeChange(item.id);
+                }}
+                className=" cursor-pointer"
+              />
             </li>
           );
         })}
