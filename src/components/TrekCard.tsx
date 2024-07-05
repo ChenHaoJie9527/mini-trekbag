@@ -33,14 +33,14 @@ export default function TrekCard() {
     setList(filterTargetList);
   };
   return (
-    <Card className=" shadow-xl border-none min-w-[740px] relative -top-12">
+    <Card className=" shadow-xl  border-none min-w-[740px] relative -top-12">
       <CardHeader className="bg-[#c9f299] rounded-t-lg p-4">
         <CardTitle className="flex items-center justify-between">
           <Status className="bg-[#e2fcef]" />
           <Packed total={targetList.length} current={currentItem} />
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-[#f7f7f2] rounded-b-lg flex p-0 min-h-[400px] ">
+      <CardContent className="bg-[#f7f7f2]  rounded-b-lg flex p-0 min-h-[500px] ">
         {/* <DataTable columns={columns} data={tableSources} /> */}
         <div className="w-full flex items-center  flex-[70%] border-r flex-col">
           <div className="w-full p-2 flex items-center justify-center border-b">
