@@ -66,7 +66,12 @@ export default function TrekCard() {
           </div>
         </div>
         <div className="flex-[25%] p-3 flex-col flex h-full justify-between items-center">
-          <AddList />
+          <AddList
+            callback={(value: any) => {
+              const res = [...list, value];
+              setList(res);
+            }}
+          />
           <Complete />
         </div>
       </CardContent>
