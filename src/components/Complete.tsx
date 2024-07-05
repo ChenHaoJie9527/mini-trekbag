@@ -14,7 +14,7 @@ export default function Complete() {
         <Button>Reset to initial</Button>
       </li>
       <li>
-        <Button>emove all items</Button>
+        <Button>remove all items</Button>
       </li>
     </ul>
   );
