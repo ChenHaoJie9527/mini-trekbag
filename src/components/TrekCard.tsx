@@ -7,6 +7,7 @@ import { listSources } from "@/lib/list";
 import { useMemo, useState } from "react";
 import { head } from "lodash";
 import AddList from "./AddList";
+import Complete from "./Complete";
 // import DataTable from "./Table";
 // import { columns } from "@/lib/columns";
 // import { tableSources } from "@/lib/data";
@@ -40,7 +41,7 @@ export default function TrekCard() {
           <Packed total={targetList.length} current={currentItem} />
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-[#f7f7f2]  rounded-b-lg flex p-0 min-h-[500px] ">
+      <CardContent className="bg-[#f7f7f2]  rounded-b-lg flex p-0 h-[500px] ">
         {/* <DataTable columns={columns} data={tableSources} /> */}
         <div className="w-full flex items-center  flex-[70%] border-r flex-col">
           <div className="w-full p-2 flex items-center justify-center border-b">
@@ -64,8 +65,9 @@ export default function TrekCard() {
             />
           </div>
         </div>
-        <div className="flex-[25%] p-3 flex-col flex">
+        <div className="flex-[25%] p-3 flex-col flex h-full justify-between items-center">
           <AddList />
+          <Complete />
         </div>
       </CardContent>
     </Card>
