@@ -6,6 +6,7 @@ import List from "./List";
 import { listSources } from "@/lib/list";
 import { useMemo, useState } from "react";
 import { head } from "lodash";
+import AddList from "./AddList";
 // import DataTable from "./Table";
 // import { columns } from "@/lib/columns";
 // import { tableSources } from "@/lib/data";
@@ -63,7 +64,9 @@ export default function TrekCard() {
             />
           </div>
         </div>
-        <div className="flex-[25%]">add an item</div>
+        <div className="flex-[25%] p-3 flex-col flex">
+          <AddList />
+        </div>
       </CardContent>
     </Card>
   );

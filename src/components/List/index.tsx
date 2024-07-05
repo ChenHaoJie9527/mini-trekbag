@@ -5,12 +5,10 @@ import { useState } from "react";
 
 interface Props {
   list: ListType[];
-  callback?: (currentItem: number) => void;
   onCheckedChange?: (id: number | string, checked: boolean) => void;
 }
-export default function List({ list, callback, onCheckedChange }: Props) {
+export default function List({ list, onCheckedChange }: Props) {
   const [targetList, setTargetList] = useState(list);
-
 
   const removeChange = (id: number | string) => {
     const filterTargetList = targetList.filter((item) => item.id !== id);
